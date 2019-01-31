@@ -1,10 +1,10 @@
 .App {
   text-align: center;
   padding-top: 30px;
-  font-family: "Charm", cursive;
+  */font-family: "Abril Fatface", cursive;
 }
 body {
-  background-image: url("./pink_rice.png");
+  background-color: lightpink;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -24,12 +24,16 @@ body {
 
 .cursive {
   font-size: 70px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 175px;
 }
 .nav {
   border-bottom: 0;
 }
-
+.navContainer {
+  width: 600px;
+  margin: 0 auto;
+}
 .navbar.navbar-default {
   border-width: 0px;
   -webkit-box-shadow: 0px 0px;
@@ -52,6 +56,10 @@ body {
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0) 100%
   );
+}
+.form-group {
+  width: 50%;
+  margin: auto;
 }
 .App-link {
   color: #61dafb;
