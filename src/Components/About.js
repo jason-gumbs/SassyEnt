@@ -5,10 +5,28 @@ import Header from "./Header"
 
 import logo from "../Assets/Logo.png"
 import services from "../Assets/services.jpg"
+
 import {
+    Nav,
+    NavItem,
+    NavDropdown,
+    MenuItem,
+    Navbar,
+    Grid,
+    Row,
+    Col,
+    Image,
+    FormGroup,
+
+    ControlLabel,
+    HelpBlock,
+    Button,
+    Modal,
     Card,
-    ListGroup
+    Carousel,
+    Container
 } from "react-bootstrap";
+import girl1 from "../Assets/girl1.JPG";
 
 
 class About extends Component {
@@ -46,19 +64,19 @@ class About extends Component {
                 <Header/>
                 <br/>
 
-                <div class="container">
-                    <h1 className="text-center border-bottom-1">About Me</h1>
-
-
-                    {/*<Card style={{ width: '18rem' }}>*/}
-                        {/*<ListGroup variant="flush">*/}
-                            {/*<ListGroup.Item>Cras justo odio</ListGroup.Item>*/}
-                            {/*<ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>*/}
-                            {/*<ListGroup.Item>Vestibulum at eros</ListGroup.Item>*/}
-                        {/*</ListGroup>*/}
-                    {/*</Card>;*/}
-                </div>
-
+                <Container>
+                    <Row>
+                        <Col><h1>About US</h1></Col>
+                    </Row>
+                    <Row>
+                        <Col>  <img
+                            className="d-block w-100"
+                            src={logo}
+                            alt="Third slide"
+                        /></Col>
+                        <Col><p>fsdfksdflksjdfisjdfsdibsidbcuisdbiuhsdifhskdfhkjsdhfisucnisudnciushduin</p></Col>
+                    </Row>
+                </Container>
 
             </div>
         );
