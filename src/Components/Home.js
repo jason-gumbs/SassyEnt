@@ -1,6 +1,12 @@
-import React, { Component } from "react";
-import { Prompt } from "react-router-dom"
+import React, {Component} from "react";
+import {Prompt} from "react-router-dom"
 import '../App.css';
+import Header from "./Header"
+
+import girl1 from "../Assets/girl1.JPG"
+import girl2 from "../Assets/girl2.JPG"
+import logo from "../Assets/Logo.png"
+import place from "../Assets/800x400.png"
 import {
     Nav,
     NavItem,
@@ -11,24 +17,26 @@ import {
     Row,
     Col,
     Image,
+    Form,
     FormGroup,
     FormControl,
-    ControlLabel,
+
     HelpBlock,
     Button,
     Modal,
+    Carousel,
     Container
 } from "react-bootstrap";
+
 
 class Home extends Component {
     state = {
         name: "",
         email: "",
         value: "",
-        show: true,
+        show: false,
         isBlocking: false
     };
-
 
 
     getValidationState() {
@@ -40,97 +48,104 @@ class Home extends Component {
     }
 
     handleChange = event => {
-        const { name, value } = event.target;
+        const {name, value} = event.target;
         this.setState({
             [name]: value
         });
     };
     handleClose = () => {
-        this.setState({ show: false });
+        this.setState({show: false});
     };
 
     render() {
-        let { isBlocking } = this.state;
+        let {isBlocking} = this.state;
         return (
             <div className="App">
-                <div className="navContainer">
-                    <Navbar>
-                        <Navbar.Header>
-                            <Navbar.Brand>
-                                {/*<a href="#home">Sassy the cosmetologist</a>*/}
-                                <Image src="../Assets/Logo.png" fluid />
-                            </Navbar.Brand>
-                        </Navbar.Header>
-                        <Nav
-                            bsStyle="tabs"
-                            onSelect={k => this.handleSelect(k)}
-                            className="nav"
-                        >
-                            <NavItem eventKey="1" href="/home" style={{ color: "black" }}>
-                                Home
-                            </NavItem>
-                            <NavDropdown eventKey="4" title="Services" id="nav-dropdown">
-                                <MenuItem eventKey="4.1">Action</MenuItem>
-                                <MenuItem eventKey="4.2">Another action</MenuItem>
-                                <MenuItem eventKey="4.3">Something else here</MenuItem>
-                                <MenuItem divider />
-                                <MenuItem eventKey="4.4">Separated link</MenuItem>
-                            </NavDropdown>
-                            <NavItem eventKey="3">Product</NavItem>
-                            <NavItem eventKey="4">About</NavItem>
-                        </Nav>
-                    </Navbar>
-                </div>
+                <Header/>
 
-                <Grid fluid style={{ hieght: "100%" }}>
-                    <Row>
-                        <Col />
-                        <Col style={{ margin: "auto" }}>
-                            <h1 className="cursive">Coming Soon</h1>
-                            <Modal
-                                size="lg"
-                                aria-labelledby="contained-modal-title-vcenter"
-                                show={this.state.show}
-                                onHide={this.handleClose}
+                <br/>
+                <Container fluid>
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={girl2}
+
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={girl1}
+                            alt="Third slide"
+                        />
+
+                        <Carousel.Caption>
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={girl1}
+                            alt="Third slide"
+                        />
+
+                        <Carousel.Caption>
+                            <h3>Third slide label</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+                <div className="boxes">
+                </div>
+                <Modal
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    show={this.state.show}
+                    onHide={this.handleClose}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>NEWS LETTER SIGN-UP AND PROMOTIONS</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form>
+                            <Form.Group
+                                controlId="formBasicText"
+                                validationState={this.getValidationState()}
                             >
-                                <Modal.Header closeButton>
-                                    <Modal.Title>NEWS LETTER SIGN-UP AND PROMOTIONS</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
-                                    <form>
-                                        <FormGroup
-                                            controlId="formBasicText"
-                                            validationState={this.getValidationState()}
-                                        >
-                                            <ControlLabel>Name</ControlLabel>
-                                            <FormControl
-                                                type="text"
-                                                name="value"
-                                                value={this.state.value}
-                                                placeholder="Enter text"
-                                                onChange={this.handleChange}
-                                            />
-                                            <ControlLabel>Email</ControlLabel>
-                                            <FormControl
-                                                type="text"
-                                                name="email"
-                                                value={this.state.email}
-                                                placeholder="Enter text"
-                                                onChange={this.handleChange}
-                                            />
-                                        </FormGroup>
-                                    </form>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="primary" onClick={this.handleClose}>
-                                        Submit
-                                    </Button>
-                                </Modal.Footer>
-                            </Modal>
-                        </Col>
-                        <Col />
-                    </Row>
-                </Grid>
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="value"
+                                    value={this.state.value}
+                                    placeholder="Enter text"
+                                    onChange={this.handleChange}
+                                />
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="email"
+                                    value={this.state.email}
+                                    placeholder="Enter text"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={this.handleClose}>
+                            Submit
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+                </Container>
             </div>
         );
     }
